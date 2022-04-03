@@ -54,7 +54,7 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 1,
         decoration: BoxDecoration(
-          color: Color(0xFF14181B),
+          color: FlutterFlowTheme.tertiaryColor,
         ),
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
