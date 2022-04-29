@@ -1,3 +1,5 @@
+import 'package:diss_prototype/backend/schema/index.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +80,6 @@ class _AskQuestionWidgetState extends State<AskQuestionWidget> {
                   if (val.isEmpty) {
                     return 'You have to ask a question';
                   }
-
                   return null;
                 },
               ),
@@ -86,9 +87,11 @@ class _AskQuestionWidgetState extends State<AskQuestionWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
                 child: FFButtonWidget(
                   onPressed: () {
-                    print('Button pressed ...');
+                    FirebaseFirestore.instance
+                        .collection('Question')
+                        .add({'Question': textController.text});
                   },
-                  text: 'Post',
+                  text: 'Ask Question',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 60,

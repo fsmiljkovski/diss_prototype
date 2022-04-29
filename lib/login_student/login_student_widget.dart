@@ -1,3 +1,5 @@
+import 'package:flutter_svg/flutter_svg.dart';
+
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -64,7 +66,16 @@ class _LoginStudentWidgetState extends State<LoginStudentWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 210, 20, 70),
+                padding: EdgeInsetsDirectional.fromSTEB(30, 40, 0, 0),
+              ),
+              SvgPicture.asset(
+                'assets/images/uos-crest.svg',
+                width: 250,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 70, 20, 70),
                 child: TextFormField(
                   controller: phoneNumberController,
                   obscureText: false,

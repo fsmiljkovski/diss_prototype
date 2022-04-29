@@ -20,7 +20,6 @@ class _CreateLectureWidgetState extends State<CreateLectureWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: emailAddressController,
       obscureText: false,
       decoration: InputDecoration(
         labelText: 'Secret Key (Auto Generated)',

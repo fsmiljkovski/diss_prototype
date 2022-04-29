@@ -1,10 +1,14 @@
-import '../components/create_lecture_name_widget.dart';
+import 'package:diss_prototype/auth/auth_util.dart';
+
 import '../components/create_lecture_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../questions_page/questions_page_widget.dart';
+
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class CreateNewLectureWidget extends StatefulWidget {
   const CreateNewLectureWidget({Key key}) : super(key: key);
@@ -14,13 +18,18 @@ class CreateNewLectureWidget extends StatefulWidget {
 }
 
 class _CreateNewLectureWidgetState extends State<CreateNewLectureWidget> {
-  bool switchListTileValue;
+  TextEditingController classroomtitlecontroller = TextEditingController();
+
+  String generateRandomNumber() {
+    String code = Random().nextInt(999999).toString().padLeft(6, '0');
+    return code;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 425,
+      height: 320,
       decoration: BoxDecoration(
         color: Color(0xFF14181B),
         boxShadow: [
@@ -34,7 +43,7 @@ class _CreateNewLectureWidgetState extends State<CreateNewLectureWidget> {
         shape: BoxShape.rectangle,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 20),
+        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -45,42 +54,58 @@ class _CreateNewLectureWidgetState extends State<CreateNewLectureWidget> {
                 color: Colors.white,
               ),
             ),
-            CreateLectureNameWidget(),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-              child: CreateLectureWidget(),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-              child: SwitchListTile(
-                value: switchListTileValue ??= true,
-                onChanged: (newValue) =>
-                    setState(() => switchListTileValue = newValue),
-                title: Text(
-                  'Auto Generate Key',
-                  style: FlutterFlowTheme.title3.override(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                  ),
+            TextFormField(
+              obscureText: false,
+              controller: classroomtitlecontroller,
+              decoration: InputDecoration(
+                labelText: 'Classroom Title',
+                labelStyle: FlutterFlowTheme.bodyText1.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF57636C),
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
                 ),
-                tileColor: Color(0xFFF5F5F5),
-                dense: false,
-                controlAffinity: ListTileControlAffinity.trailing,
+                hintText: 'Title of Lecture',
+                hintStyle: FlutterFlowTheme.bodyText1.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF57636C),
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFDBE2E7),
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Color(0xFFDBE2E7),
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+              ),
+              style: FlutterFlowTheme.bodyText1.override(
+                fontFamily: 'Lexend Deca',
+                color: Color(0xFF1D2429),
+                fontSize: 14,
+                fontWeight: FontWeight.normal,
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    PageTransition(
-                      type: PageTransitionType.topToBottom,
-                      duration: Duration(milliseconds: 300),
-                      reverseDuration: Duration(milliseconds: 300),
-                      child: QuestionsPageWidget(),
-                    ),
-                  );
+                  FirebaseFirestore.instance.collection('Lectures').add({
+                    'ClassroomTitle': classroomtitlecontroller.text,
+                    'SecretKey': generateRandomNumber(),
+                    'Professor': currentUserDisplayName
+                  });
                 },
                 text: 'Create',
                 options: FFButtonOptions(

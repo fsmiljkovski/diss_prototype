@@ -1,5 +1,7 @@
-import '../components/class_key_widget.dart';
-import '../components/class_name_widget.dart';
+import 'package:diss_prototype/auth/auth_util.dart';
+import 'package:diss_prototype/auth/firebase_user_provider.dart';
+import 'package:diss_prototype/backend/schema/index.dart';
+import 'dart:math';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +14,18 @@ class CreateClassWidget extends StatefulWidget {
 }
 
 class _CreateClassWidgetState extends State<CreateClassWidget> {
-  bool switchListTileValue;
+  TextEditingController classtitlecontroller = TextEditingController();
+
+  String generateRandomNumber() {
+    String code = Random().nextInt(999999).toString().padLeft(6, '0');
+    return code;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 440,
+      height: 320,
       decoration: BoxDecoration(
         color: Color(0xFF14181B),
         boxShadow: [
@@ -48,31 +55,61 @@ class _CreateClassWidgetState extends State<CreateClassWidget> {
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
-              child: ClassNameWidget(),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-              child: ClassKeyWidget(),
-            ),
-            SwitchListTile(
-              value: switchListTileValue ??= true,
-              onChanged: (newValue) =>
-                  setState(() => switchListTileValue = newValue),
-              title: Text(
-                'Auto Generate Key',
-                style: FlutterFlowTheme.title3.override(
-                  fontFamily: 'Poppins',
-                  color: Colors.white,
+              child: TextFormField(
+                controller: classtitlecontroller,
+                obscureText: false,
+                decoration: InputDecoration(
+                  labelText: 'Class Title',
+                  labelStyle: FlutterFlowTheme.bodyText1.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Color(0xFF57636C),
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  hintText: 'Name of Class',
+                  hintStyle: FlutterFlowTheme.bodyText1.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Color(0xFF57636C),
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFDBE2E7),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0xFFDBE2E7),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+                ),
+                style: FlutterFlowTheme.bodyText1.override(
+                  fontFamily: 'Lexend Deca',
+                  color: Color(0xFF1D2429),
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
                 ),
               ),
-              tileColor: Color(0xFFF5F5F5),
-              dense: false,
-              controlAffinity: ListTileControlAffinity.trailing,
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
-                onPressed: () async {},
+                onPressed: () async {
+                  FirebaseFirestore.instance.collection('Classes').add({
+                    'ClassTitle': classtitlecontroller.text,
+                    'SecretKey': generateRandomNumber(),
+                    'Professor': currentUserDisplayName
+                  });
+                },
                 text: 'Create',
                 options: FFButtonOptions(
                   width: double.infinity,

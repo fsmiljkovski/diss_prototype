@@ -79,7 +79,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
-                          color: FlutterFlowTheme.primaryColor,
+                          color: Color(0xFFDE1212),
                           textStyle: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Poppins',
                             color: Color(0xFF14181B),
@@ -136,7 +136,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                         options: FFButtonOptions(
                           width: 150,
                           height: 40,
-                          color: Color(0xFFDE1212),
+                          color: FlutterFlowTheme.primaryColor,
                           textStyle: FlutterFlowTheme.subtitle2.override(
                             fontFamily: 'Poppins',
                             color: Color(0xFF303030),
