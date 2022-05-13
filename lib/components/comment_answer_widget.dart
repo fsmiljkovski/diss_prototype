@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,18 +11,18 @@ class CommentAnswerWidget extends StatefulWidget {
 }
 
 class _CommentAnswerWidgetState extends State<CommentAnswerWidget> {
-  TextEditingController emailAddressController;
+  TextEditingController answerController;
 
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController();
+    answerController = TextEditingController();
   }
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: emailAddressController,
+      controller: answerController,
       obscureText: false,
       decoration: InputDecoration(
         labelText: 'Comment/Answer',
@@ -52,7 +54,7 @@ class _CommentAnswerWidgetState extends State<CommentAnswerWidget> {
         ),
         filled: true,
         fillColor: Colors.white,
-        contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
+        contentPadding: EdgeInsetsDirectional.fromSTEB(24, 20, 20, 24),
       ),
       style: FlutterFlowTheme.bodyText1.override(
         fontFamily: 'Lexend Deca',

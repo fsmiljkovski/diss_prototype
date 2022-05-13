@@ -25,9 +25,9 @@ class _IndependentQuestionsWidgetState
         title: AutoSizeText(
           'Why is Java hard',
           style: FlutterFlowTheme.subtitle1.override(
-                fontFamily: 'Poppins',
-                color: Color(0xFF303030),
-              ),
+            fontFamily: 'Poppins',
+            color: Color(0xFF303030),
+          ),
         ),
         actions: [],
         centerTitle: true,
@@ -35,7 +35,6 @@ class _IndependentQuestionsWidgetState
       ),
       backgroundColor: Color(0xFF2C2C2C),
       body: SafeArea(
-        
         child: CommentAnswerWidget(),
       ),
     );

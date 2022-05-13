@@ -17,7 +17,6 @@ Future<User> createAccountWithEmail(
             email: email.trim(),
             password: password,
           );
+
   return signInOrCreateAccount(context, createAccountFunc);
 }
-
-

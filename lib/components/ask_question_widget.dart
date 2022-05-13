@@ -30,7 +30,7 @@ class _AskQuestionWidgetState extends State<AskQuestionWidget> {
         width: double.infinity,
         height: 270,
         decoration: BoxDecoration(
-          color: Color(0xFF262D34),
+          color: Color(0xFF14181B),
           boxShadow: [
             BoxShadow(
               blurRadius: 5,

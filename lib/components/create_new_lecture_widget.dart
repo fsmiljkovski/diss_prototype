@@ -1,14 +1,9 @@
 import 'package:diss_prototype/auth/auth_util.dart';
-
-import '../components/create_lecture_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class CreateNewLectureWidget extends StatefulWidget {
   const CreateNewLectureWidget({Key key}) : super(key: key);
@@ -101,6 +96,7 @@ class _CreateNewLectureWidgetState extends State<CreateNewLectureWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  Navigator.of(context).pop();
                   FirebaseFirestore.instance.collection('Lectures').add({
                     'ClassroomTitle': classroomtitlecontroller.text,
                     'SecretKey': generateRandomNumber(),

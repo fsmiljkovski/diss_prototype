@@ -374,14 +374,6 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                           if (user == null) {
                             return;
                           }
-
-                          // final usersCreateData = createUsersRecordData(
-                          //   displayName: nameController.text,
-                          // );
-                          // await user.collection
-                          //     .doc(user.uid)
-                          //     .update(usersCreateData);
-
                           await Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(

@@ -1,5 +1,4 @@
 import 'package:diss_prototype/auth/auth_util.dart';
-import 'package:diss_prototype/auth/firebase_user_provider.dart';
 import 'package:diss_prototype/backend/schema/index.dart';
 import 'dart:math';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -104,6 +103,16 @@ class _CreateClassWidgetState extends State<CreateClassWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
+                  if (classtitlecontroller.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Class title is required!',
+                        ),
+                      ),
+                    );
+                    return;
+                  }
                   FirebaseFirestore.instance.collection('Classes').add({
                     'ClassTitle': classtitlecontroller.text,
                     'SecretKey': generateRandomNumber(),
