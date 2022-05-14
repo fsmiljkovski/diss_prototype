@@ -392,7 +392,6 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                             'display_name': nameController.text,
                             'email': emailAddressController.text.trim(),
                             'createdAt': Timestamp.now(),
-                            'photo_url': 'assets/images/usericon.png',
                             'uid': currentUserUid,
                           });
 

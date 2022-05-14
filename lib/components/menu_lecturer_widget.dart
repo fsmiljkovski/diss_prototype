@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -148,7 +150,9 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                                   TextButton(
                                     onPressed: () async {
                                       Navigator.pop(alertDialogContext);
-                                      await currentUserReference.delete();
+                                      currentUserReference.delete();
+                                      await FirebaseAuth.instance.currentUser
+                                          .delete();
                                       await Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
