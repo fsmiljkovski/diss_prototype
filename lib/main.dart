@@ -6,10 +6,10 @@ import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/internationalization.dart';
-import 'package:diss_prototype/landing_page/landing_page_widget.dart';
-import 'package:diss_prototype/home_page/home_page_widget.dart';
+import 'package:diss_prototype/Pages/landing_page_widget.dart';
+import 'package:diss_prototype/Pages/Student/home_page_widget.dart';
 
-import 'home_page_lecturer/home_page_lecturer_widget.dart';
+import 'Pages/Lecturer/home_page_lecturer_widget.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

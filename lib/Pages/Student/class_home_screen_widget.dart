@@ -1,5 +1,7 @@
-import '../components/classes_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../components/classes_widget.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
 
 import 'package:flutter/material.dart';
 
@@ -33,8 +35,16 @@ class _ClassHomeScreenWidgetState extends State<ClassHomeScreenWidget> {
         elevation: 4,
       ),
       backgroundColor: Color(0xFF2C2C2C),
-      body: SafeArea(
-        child: ClassesWidget(),
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('Lectures').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ClassesWidget();
+        },
       ),
     );
   }

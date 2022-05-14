@@ -1,8 +1,8 @@
 import 'package:diss_prototype/auth/auth_util.dart';
 import 'package:diss_prototype/backend/schema/index.dart';
 import 'dart:math';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
 class CreateClassWidget extends StatefulWidget {

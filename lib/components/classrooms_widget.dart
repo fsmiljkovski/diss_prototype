@@ -1,4 +1,4 @@
-import '../class_home_screen/class_home_screen_widget.dart';
+import '../Pages/Student/class_home_screen_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 

@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../landing_page/landing_page_widget.dart';
+import '../../auth/auth_util.dart';
+import '../../backend/backend.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import '../../Pages/landing_page_widget.dart';
 import 'package:flutter/material.dart';
 
 class MenuLecturerWidget extends StatefulWidget {

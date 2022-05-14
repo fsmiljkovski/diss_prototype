@@ -8,7 +8,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_widgets.dart';
 import 'home_page_lecturer_widget.dart';
-import '../../image_picker/user_image_picker.dart';
 import 'login_teacher_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +27,8 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
   TextEditingController nameController;
   TextEditingController passwordController;
   bool passwordVisibility;
-  File image;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  File _userImageFile;
 
-  void _pickedImage(File image) {
-    _userImageFile = image;
-  }
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -357,7 +351,6 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                     ],
                   ),
                 ),
-                UserImagePicker(_pickedImage),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: Row(

@@ -1,7 +1,7 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login_student/login_student_widget.dart';
-import '../login_teacher/login_teacher_widget.dart';
+import '../Pages/Student/login_student_widget.dart';
+import '../Pages/Lecturer/login_teacher_widget.dart';
 import 'package:flutter/material.dart';
 
 class LecturerStudentOptionWidget extends StatefulWidget {

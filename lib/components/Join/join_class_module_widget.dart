@@ -1,18 +1,16 @@
-import '../components/add_class_widget.dart';
-
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../questions_page/questions_page_widget.dart';
+import 'add_class_widget.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 
-class EnterLectureWidget extends StatefulWidget {
-  const EnterLectureWidget({Key key}) : super(key: key);
+class JoinClassModuleWidget extends StatefulWidget {
+  const JoinClassModuleWidget({Key key}) : super(key: key);
 
   @override
-  _EnterLectureWidgetState createState() => _EnterLectureWidgetState();
+  _JoinClassModuleWidgetState createState() => _JoinClassModuleWidgetState();
 }
 
-class _EnterLectureWidgetState extends State<EnterLectureWidget> {
+class _JoinClassModuleWidgetState extends State<JoinClassModuleWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +34,7 @@ class _EnterLectureWidgetState extends State<EnterLectureWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Text(
-              'Join Lecture',
+              'Join Class',
               style: FlutterFlowTheme.title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -50,12 +48,7 @@ class _EnterLectureWidgetState extends State<EnterLectureWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => QuestionsPageWidget(),
-                    ),
-                  );
+                  Navigator.pop(context);
                 },
                 text: 'Submit',
                 options: FFButtonOptions(

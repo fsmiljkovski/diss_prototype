@@ -1,7 +1,6 @@
-import '../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
 
 import 'package:flutter/material.dart';
-
 
 class AddClassWidget extends StatefulWidget {
   const AddClassWidget({Key key}) : super(key: key);
@@ -27,18 +26,18 @@ class _AddClassWidgetState extends State<AddClassWidget> {
       decoration: InputDecoration(
         labelText: 'Secret Key',
         labelStyle: FlutterFlowTheme.bodyText1.override(
-              fontFamily: 'Lexend Deca',
-              color: Color(0xFF57636C),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+          fontFamily: 'Lexend Deca',
+          color: Color(0xFF57636C),
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
         hintText: 'Secret key given by your Lecturer',
         hintStyle: FlutterFlowTheme.bodyText1.override(
-              fontFamily: 'Lexend Deca',
-              color: Color(0xFF57636C),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+          fontFamily: 'Lexend Deca',
+          color: Color(0xFF57636C),
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Color(0xFFDBE2E7),
@@ -58,11 +57,11 @@ class _AddClassWidgetState extends State<AddClassWidget> {
         contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
       ),
       style: FlutterFlowTheme.bodyText1.override(
-            fontFamily: 'Lexend Deca',
-            color: Color(0xFF1D2429),
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
+        fontFamily: 'Lexend Deca',
+        color: Color(0xFF1D2429),
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
     );
   }
 }

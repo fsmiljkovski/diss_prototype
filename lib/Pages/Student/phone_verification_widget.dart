@@ -1,11 +1,11 @@
 import 'package:flutter_svg/svg.dart';
 
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
+import '../../auth/auth_util.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import 'home_page_widget.dart';
 import 'package:flutter/material.dart';
-import '../login_student/login_student_widget.dart';
+import 'login_student_widget.dart';
 
 class PhoneVerificationWidget extends StatefulWidget {
   const PhoneVerificationWidget({Key key}) : super(key: key);

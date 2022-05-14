@@ -1,9 +1,9 @@
-import 'package:diss_prototype/sign_up_lecturer/sign_up_lecturer_widget.dart';
+import 'package:diss_prototype/Pages/Lecturer/sign_up_lecturer_widget.dart';
 
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page_lecturer/home_page_lecturer_widget.dart';
+import '../../auth/auth_util.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import 'home_page_lecturer_widget.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

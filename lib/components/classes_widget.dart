@@ -1,4 +1,4 @@
-import '../components/enter_lecture_widget.dart';
+import 'Join/enter_lecture_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 

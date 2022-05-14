@@ -1,14 +1,14 @@
-import '../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 
-class PhoneNumberCodeWidget extends StatefulWidget {
-  const PhoneNumberCodeWidget({Key key}) : super(key: key);
+class CreateLectureWidget extends StatefulWidget {
+  const CreateLectureWidget({Key key}) : super(key: key);
 
   @override
-  _PhoneNumberCodeWidgetState createState() => _PhoneNumberCodeWidgetState();
+  _CreateLectureWidgetState createState() => _CreateLectureWidgetState();
 }
 
-class _PhoneNumberCodeWidgetState extends State<PhoneNumberCodeWidget> {
+class _CreateLectureWidgetState extends State<CreateLectureWidget> {
   TextEditingController emailAddressController;
 
   @override
@@ -20,22 +20,22 @@ class _PhoneNumberCodeWidgetState extends State<PhoneNumberCodeWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: emailAddressController,
       obscureText: false,
       decoration: InputDecoration(
+        labelText: 'Secret Key (Auto Generated)',
         labelStyle: FlutterFlowTheme.bodyText1.override(
-              fontFamily: 'Lexend Deca',
-              color: Color(0xFF57636C),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
-        hintText: 'Enter the code recieved over SMS',
+          fontFamily: 'Lexend Deca',
+          color: Color(0xFF57636C),
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
+        hintText: 'Enter a unique secret key, if you wish',
         hintStyle: FlutterFlowTheme.bodyText1.override(
-              fontFamily: 'Lexend Deca',
-              color: Color(0xFF57636C),
-              fontSize: 14,
-              fontWeight: FontWeight.normal,
-            ),
+          fontFamily: 'Lexend Deca',
+          color: Color(0xFF57636C),
+          fontSize: 14,
+          fontWeight: FontWeight.normal,
+        ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Color(0xFFDBE2E7),
@@ -55,11 +55,11 @@ class _PhoneNumberCodeWidgetState extends State<PhoneNumberCodeWidget> {
         contentPadding: EdgeInsetsDirectional.fromSTEB(24, 24, 20, 24),
       ),
       style: FlutterFlowTheme.bodyText1.override(
-            fontFamily: 'Lexend Deca',
-            color: Color(0xFF1D2429),
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
+        fontFamily: 'Lexend Deca',
+        color: Color(0xFF1D2429),
+        fontSize: 14,
+        fontWeight: FontWeight.normal,
+      ),
     );
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter_svg/svg.dart';
 
-import '../components/phone_number_code_widget.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page/home_page_widget.dart';
+import 'phone_number_code_widget.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import '../../Pages/Student/home_page_widget.dart';
 import 'package:flutter/material.dart';
 
 class PhoneNumVerifyWidget extends StatefulWidget {
