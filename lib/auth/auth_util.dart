@@ -1,5 +1,3 @@
-// ignore_for_file: missing_return
-
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +6,6 @@ import '../backend/backend.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'firebase_user_provider.dart';
 
-export 'anonymous_auth.dart';
 export 'apple_auth.dart';
 export 'email_auth.dart';
 export 'google_auth.dart';
@@ -106,7 +103,7 @@ Future beginPhoneAuth({
   // * Finally modify verificationCompleted below as instructed.
   await FirebaseAuth.instance.verifyPhoneNumber(
     phoneNumber: phoneNumber,
-    timeout: Duration(seconds: 5),
+    timeout: Duration(seconds: 60),
     verificationCompleted: (phoneAuthCredential) async {
       await FirebaseAuth.instance.signInWithCredential(phoneAuthCredential);
       // If you've implemented auto-verification, navigate to home page or

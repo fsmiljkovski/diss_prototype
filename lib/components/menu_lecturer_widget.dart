@@ -37,10 +37,15 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: Image.network(
-                    currentUserPhoto,
-                    fit: BoxFit.cover,
-                  ),
+                  child: currentUserPhoto != null
+                      ? Image.network(
+                          currentUserPhoto,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          'assets/images/usericon.png',
+                          fit: BoxFit.cover,
+                        ),
                 ),
               ),
               Row(

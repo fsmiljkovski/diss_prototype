@@ -9,6 +9,8 @@ import 'flutter_flow/internationalization.dart';
 import 'package:diss_prototype/landing_page/landing_page_widget.dart';
 import 'package:diss_prototype/home_page/home_page_widget.dart';
 
+import 'home_page_lecturer/home_page_lecturer_widget.dart';
+
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -78,10 +80,11 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             )
-          : currentUser.loggedIn
-              ? HomePageWidget()
-              //: HomePageLecturerWidget()
-              : LandingPageWidget(),
+          : !currentUser.loggedIn
+              ? LandingPageWidget()
+              : currentUserDisplayName.isEmpty
+                  ? HomePageWidget()
+                  : HomePageLecturerWidget(),
     );
   }
 }

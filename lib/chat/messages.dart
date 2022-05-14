@@ -1,11 +1,7 @@
 import 'package:diss_prototype/chat/message_bubble.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import '../flutter_flow/flutter_flow_theme.dart';
 
 class Messages extends StatelessWidget {
   const Messages({Key key}) : super(key: key);

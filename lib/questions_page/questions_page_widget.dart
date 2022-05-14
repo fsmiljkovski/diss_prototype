@@ -5,8 +5,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-import '../independent_questions/independent_questions_widget.dart';
-
 class QuestionsPageWidget extends StatefulWidget {
   const QuestionsPageWidget({Key key}) : super(key: key);
 

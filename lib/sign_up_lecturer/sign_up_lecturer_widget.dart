@@ -1,9 +1,14 @@
-import 'package:diss_prototype/backend/backend.dart';
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../auth/auth_util.dart';
+import '../auth/firebase_user_provider.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page_lecturer/home_page_lecturer_widget.dart';
+import '../image_picker/user_image_picker.dart';
 import '../login_teacher/login_teacher_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +28,13 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
   TextEditingController nameController;
   TextEditingController passwordController;
   bool passwordVisibility;
+  File image;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  File _userImageFile;
+
+  void _pickedImage(File image) {
+    _userImageFile = image;
+  }
 
   @override
   void initState() {
@@ -47,7 +58,6 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
           'Lecturer Sign Up',
           style: FlutterFlowTheme.title1,
         ),
-        actions: [],
         centerTitle: true,
         elevation: 4,
       ),
@@ -280,7 +290,7 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 15),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -347,6 +357,7 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                     ],
                   ),
                 ),
+                UserImagePicker(_pickedImage),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                   child: Row(
@@ -355,8 +366,8 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          if (passwordController.text !=
-                              confimPasswordController.text) {
+                          if (passwordController.text.trim() !=
+                              confimPasswordController.text.trim()) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
@@ -373,6 +384,17 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                             passwordController.text,
                             nameController.text,
                           );
+
+                          await FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(currentUserUid)
+                              .set({
+                            'display_name': nameController.text,
+                            'email': emailAddressController.text.trim(),
+                            'createdAt': Timestamp.now(),
+                            'photo_url': 'assets/images/usericon.png',
+                            'uid': currentUserUid,
+                          });
 
                           if (user == null) {
                             return;
