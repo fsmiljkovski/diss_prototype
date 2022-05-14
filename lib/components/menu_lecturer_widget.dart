@@ -37,7 +37,7 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                   ),
-                  child: currentUserPhoto != null
+                  child: currentUserPhoto.isNotEmpty
                       ? Image.network(
                           currentUserPhoto,
                           fit: BoxFit.cover,
