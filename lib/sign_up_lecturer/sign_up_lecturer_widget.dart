@@ -1,3 +1,5 @@
+import 'package:diss_prototype/backend/backend.dart';
+
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -371,6 +373,7 @@ class _SignUpLecturerWidgetState extends State<SignUpLecturerWidget> {
                             passwordController.text,
                             nameController.text,
                           );
+
                           if (user == null) {
                             return;
                           }

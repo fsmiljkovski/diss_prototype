@@ -1,4 +1,5 @@
 import '../components/add_class_widget.dart';
+import '../chat/chat_screen.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../questions_page/questions_page_widget.dart';
