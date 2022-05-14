@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
 class LandingPageWidget extends StatefulWidget {
   const LandingPageWidget({Key key}) : super(key: key);
 
@@ -22,7 +21,6 @@ class _LandingPageWidgetState extends State<LandingPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(2),
         child: AppBar(

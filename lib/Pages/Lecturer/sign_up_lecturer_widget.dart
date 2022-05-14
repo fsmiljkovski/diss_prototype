@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../auth/auth_util.dart';
-import '../auth/firebase_user_provider.dart';
+import '../../auth/auth_util.dart';
+import '../../auth/firebase_user_provider.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../home_page_lecturer/home_page_lecturer_widget.dart';
-import '../image_picker/user_image_picker.dart';
-import '../login_teacher/login_teacher_widget.dart';
+import '../../flutter_flow/flutter_flow_theme.dart';
+import '../../flutter_flow/flutter_flow_widgets.dart';
+import 'home_page_lecturer_widget.dart';
+import '../../image_picker/user_image_picker.dart';
+import 'login_teacher_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
