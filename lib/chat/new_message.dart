@@ -13,6 +13,7 @@ class NewMessage extends StatefulWidget {
 
 class _NewMessageState extends State<NewMessage> {
   final _messageController = new TextEditingController();
+  FocusNode myFocusNode = new FocusNode();
   var _enteredMessage = '';
 
   void _sendMessage() async {
@@ -29,31 +30,37 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 8),
-        padding: EdgeInsets.all(8),
-        child: Row(
-          children: [
-            Expanded(
-              child: TextField(
-                controller: _messageController,
-                decoration: InputDecoration(
+      margin: EdgeInsets.only(top: 8),
+      padding: EdgeInsets.all(8),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              focusNode: myFocusNode,
+              style: TextStyle(color: FlutterFlowTheme.secondaryColor),
+              controller: _messageController,
+              decoration: InputDecoration(
                   labelText: 'Send a message...',
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    _enteredMessage = value;
-                  });
-                },
-              ),
+                  labelStyle: TextStyle(
+                    color: myFocusNode.hasFocus ? Colors.blue : Colors.white,
+                  )),
+              onChanged: (value) {
+                setState(() {
+                  _enteredMessage = value;
+                });
+              },
             ),
-            IconButton(
-              color: FlutterFlowTheme.primaryColor,
-              icon: Icon(
-                Icons.send,
-              ),
-              onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
+          ),
+          IconButton(
+            disabledColor: FlutterFlowTheme.secondaryColor,
+            color: FlutterFlowTheme.primaryColor,
+            icon: Icon(
+              Icons.send,
             ),
-          ],
-        ));
+            onPressed: _enteredMessage.trim().isEmpty ? null : _sendMessage,
+          ),
+        ],
+      ),
+    );
   }
 }

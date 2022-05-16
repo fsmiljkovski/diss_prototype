@@ -81,6 +81,7 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                         final textUsersRecord = textUsersRecordList.isNotEmpty
                             ? textUsersRecordList.first
                             : null;
+
                         return Text(
                           'User: $currentUserDisplayName',
                           textAlign: TextAlign.center,
@@ -115,9 +116,9 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                         },
                         text: 'Log Out',
                         options: FFButtonOptions(
-                          width: 130,
+                          width: 150,
                           height: 40,
-                          color: Color(0xFFDE1212),
+                          color: FlutterFlowTheme.primaryColor,
                           textStyle: FlutterFlowTheme.subtitle2.override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.secondaryColor,
@@ -173,7 +174,7 @@ class _MenuLecturerWidgetState extends State<MenuLecturerWidget> {
                         options: FFButtonOptions(
                           width: 150,
                           height: 40,
-                          color: FlutterFlowTheme.primaryColor,
+                          color: Color(0xFFDE1212),
                           textStyle: FlutterFlowTheme.subtitle2.override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.secondaryColor,

@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../components/classes_widget.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
-
+import '../../components/Join/enter_lecture_widget.dart';
 import 'package:flutter/material.dart';
 
 class ClassHomeScreenWidget extends StatefulWidget {
@@ -23,7 +22,7 @@ class _ClassHomeScreenWidgetState extends State<ClassHomeScreenWidget> {
         backgroundColor: FlutterFlowTheme.primaryColor,
         automaticallyImplyLeading: true,
         title: Text(
-          'Object Oriented Programming',
+          'Lectures',
           style: FlutterFlowTheme.subtitle2.override(
             fontFamily: 'Poppins',
             color: Color(0xFF303030),
@@ -43,7 +42,81 @@ class _ClassHomeScreenWidgetState extends State<ClassHomeScreenWidget> {
               child: CircularProgressIndicator(),
             );
           }
-          return ClassesWidget();
+          return ListView(
+            children: snapshot.data.docs.map((document) {
+              return ListView(
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 3,
+                            color: Color(0x25000000),
+                            offset: Offset(0, 2),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: InkWell(
+                        onTap: () async {
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (context) {
+                              return Padding(
+                                padding: MediaQuery.of(context).viewInsets,
+                                child: EnterLectureWidget(),
+                              );
+                            },
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+                              child: Container(
+                                width: 4,
+                                height: 90,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.primaryColor,
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12, 12, 16, 12),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    document['ClassroomTitle'],
+                                    style: FlutterFlowTheme.title2.override(
+                                      fontFamily: 'Lexend Deca',
+                                      color: Color(0xFF090F13),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              );
+            }).toList(),
+          );
         },
       ),
     );

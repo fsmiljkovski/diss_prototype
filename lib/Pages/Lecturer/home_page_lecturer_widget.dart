@@ -1,4 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:diss_prototype/flutter_flow/flutter_flow_widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../components/Info/class_info.dart';
 import 'class_home_screen_lecturer_widget.dart';
 import '../../components/Creating/create_class_widget.dart';
 import '../../components/Menu/menu_lecturer_widget.dart';

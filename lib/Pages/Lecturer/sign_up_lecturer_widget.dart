@@ -1,10 +1,6 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../auth/auth_util.dart';
-import '../../auth/firebase_user_provider.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_widgets.dart';
 import 'home_page_lecturer_widget.dart';

@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../chat/chat_screen.dart';
 import '../components/Creating/ask_question_widget.dart';
+import '../components/Info/lecture_info.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -22,12 +24,36 @@ class _QuestionsPageWidgetState extends State<QuestionsPageWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.primaryColor,
           automaticallyImplyLeading: true,
-          title: AutoSizeText(
-            'Object Oriented Programming',
-            style: FlutterFlowTheme.subtitle1.override(
-              fontFamily: 'Poppins',
-              color: Color(0xFF303030),
-            ),
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(60, 0, 0, 0),
+                child: Text(
+                  'Questions',
+                  style: FlutterFlowTheme.title1,
+                ),
+              ),
+              IconButton(
+                color: FlutterFlowTheme.tertiaryColor,
+                onPressed: () async {
+                  await showModalBottomSheet(
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (context) {
+                      return Padding(
+                        padding: MediaQuery.of(context).viewInsets,
+                        child: LectureInfoWidget(),
+                      );
+                    },
+                  );
+                },
+                icon: const FaIcon(
+                  FontAwesomeIcons.angleDown,
+                ),
+              ),
+            ],
           ),
           actions: [],
           centerTitle: true,
